@@ -30,7 +30,7 @@ export default class MongoBinary {
         process.env?.MONGOMS_DOWNLOAD_DIR ||
         (fs.existsSync(legacyDLDir)
           ? legacyDLDir
-          : path.resolve(findCacheDir({ name: 'mongodb-memory-server' }), 'mongodb-binaries')),
+          : path.resolve(findCacheDir({ name: 'mongodb-memory-server', cwd: os.homedir() }), 'mongodb-binaries')),
       platform: process.env?.MONGOMS_PLATFORM || os.platform(),
       arch: process.env?.MONGOMS_ARCH || os.arch(),
       version: process.env?.MONGOMS_VERSION || 'latest',
